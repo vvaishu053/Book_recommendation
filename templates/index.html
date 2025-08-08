@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Book Genre Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Book Genre Recommender</h1>
+        <form action="{{ url_for('recommend') }}" method="post">
+            <label for="user_input">Enter your favorite genre or describe what kind of books you like:</label><br />
+            <textarea id="user_input" name="user_input" rows="3" placeholder="e.g. I love magical fantasy worlds" required></textarea><br />
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>

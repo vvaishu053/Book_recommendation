@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Recommendations for {{ genre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Books in Genre: <em>{{ genre }}</em></h1>
+        {% if recommendations %}
+            <div class="book-list">
+                {% for book in recommendations %}
+                    <div class="book-card">
+                        <img src="{{ book.image }}" alt="Cover of {{ book.title }}" />
+                        <h3>{{ book.title }}</h3>
+                        <p><strong>Author:</strong> {{ book.author }}</p>
+                        <p class="desc">{{ book.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No recommendations found for this genre.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
